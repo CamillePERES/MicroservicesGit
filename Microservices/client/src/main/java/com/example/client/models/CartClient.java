@@ -1,13 +1,13 @@
-package com.example.client.bean;
+package com.example.client.models;
 
 import java.util.List;
 
-public class CartBean {
+public class CartClient {
 
     private Long id;
-    private List<CartItemBean> products;
+    private List<CartItemClient> products;
 
-    public CartBean(){
+    public CartClient(){
 
     }
 
@@ -19,11 +19,12 @@ public class CartBean {
         this.id = id;
     }
 
-    public List<CartItemBean> getProducts() {
+    public List<CartItemClient> getProducts() {
         return products;
     }
 
-    public void setProducts(List<CartItemBean> products) {
+    public void setProducts(List<CartItemClient> products) {
         this.products = products;
     }
+
 }

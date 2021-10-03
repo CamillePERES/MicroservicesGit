@@ -25,6 +25,7 @@ public class CartController {
     @Autowired
     CartItemRepository cartItemRepository;
 
+    @Autowired
     CartService cartService;
 
     @PostMapping(value="/cart")
@@ -67,7 +68,6 @@ public class CartController {
     }
 
     @GetMapping(value="/lastCart")
-    @Transactional
     public Optional<Cart> getLastCart(){
 
         long id = cartRepository.findLastCartId();
@@ -84,8 +84,8 @@ public class CartController {
         if(cartItem == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parameter is null");
         }
-
-        return ResponseEntity.ok(cartService.addCartItemToCart(cartItem));
+        Cart c = cartService.addCartItemToCart(cartItem);
+        return ResponseEntity.ok(c);
     }
 
 }

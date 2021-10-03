@@ -4,9 +4,8 @@ import com.example.product.entities.Product;
 import com.example.product.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -34,5 +33,11 @@ public class ProductController {
         if(!productInstance.isPresent())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Specified product doesn't exist");
         return productInstance;
+    }
+
+    @PostMapping("/products/all")
+    public ResponseEntity<List<Product>> getProduct(@RequestBody List<Long> ids){
+        List<Product> prod = productRepository.findAllById(ids);
+        return ResponseEntity.ok(prod);
     }
 }

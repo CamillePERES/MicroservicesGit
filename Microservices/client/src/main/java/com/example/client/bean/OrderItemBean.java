@@ -1,12 +1,13 @@
 package com.example.client.bean;
 
-public class CartItemBean {
+public class OrderItemBean {
 
     private Long id;
     private Long productId;
     private int quantity;
+    private int total;
 
-    public CartItemBean(){
+    public OrderItemBean(){
 
     }
 
@@ -33,4 +34,13 @@ public class CartItemBean {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
 }

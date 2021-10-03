@@ -1,12 +1,14 @@
-package com.example.client.bean;
+package com.example.client.models;
 
-public class CartItemBean {
+import com.example.client.bean.ProductBean;
+
+public class CartItemClient {
 
     private Long id;
-    private Long productId;
+    private ProductBean product;
     private int quantity;
 
-    public CartItemBean(){
+    public CartItemClient(){
 
     }
 
@@ -18,12 +20,12 @@ public class CartItemBean {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public ProductBean getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(ProductBean productId) {
+        this.product = productId;
     }
 
     public int getQuantity() {
