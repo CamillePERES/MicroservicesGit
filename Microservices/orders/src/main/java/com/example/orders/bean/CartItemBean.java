@@ -1,14 +1,12 @@
-package com.example.client.bean;
+package com.example.orders.bean;
 
-public class OrderItemBean {
+public class CartItemBean {
 
     private Long id;
     private Long productId;
     private int quantity;
-    private double price;
-    private double total;
 
-    public OrderItemBean(){
+    public CartItemBean(){
 
     }
 
@@ -34,21 +32,5 @@ public class OrderItemBean {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
     }
 }

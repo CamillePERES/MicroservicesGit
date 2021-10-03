@@ -88,5 +88,12 @@ public class CartController {
         return ResponseEntity.ok(c);
     }
 
+    @PostMapping(value="/cart/newCart")
+    @Transactional
+    public ResponseEntity<Cart> newCart(){
+        Cart c = cartService.newCart();
+        return ResponseEntity.ok(c);
+    }
+
 }
 

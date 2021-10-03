@@ -9,8 +9,15 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">Microservice Client eCommerce - Home</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/orderView">Order <span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
         <button class="btn btn-outline-success my-2 my-sm-0" onclick="onClickCart()">Cart</button>
     </nav>
     <div class="row">
@@ -45,6 +52,17 @@
             success:function(htmldata){
                 modalBody.innerHTML=htmldata;
                 modal.show();
+            }
+        })
+    }
+
+    function createOrder(){
+        $.ajax({
+            type:'POST',
+            contentType:'application/json',
+            url:'/order',
+            success:function(){
+                window.location.replace("/orderView");
             }
         })
     }

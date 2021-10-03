@@ -6,6 +6,7 @@ public class OrderBean {
 
     private Long id;
     private List<OrderItemBean> items;
+    private double total;
 
     public OrderBean(){
 
@@ -25,5 +26,13 @@ public class OrderBean {
 
     public void setItems(List<OrderItemBean> items) {
         this.items = items;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

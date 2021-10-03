@@ -80,9 +80,9 @@ public class ClientController {
     }
 
     @RequestMapping("/orderView")
-    public String orderView (Model model, Long id){
-        Optional<OrderBean> order = msOrderProxy.getOrder(id);
-        model.addAttribute("order", order);
+    public String orderView (Model model){
+        List<OrderBean> order = msOrderProxy.getAllOrder();
+        model.addAttribute("orders", order);
         return "order";
     }
 
@@ -118,17 +118,13 @@ public class ClientController {
     }
 
     @PostMapping(value="/order")
-    public ResponseEntity<OrderBean> createOrder(@RequestBody OrderBean orderBean){
+    public ResponseEntity<OrderBean> createOrder(){
 
-        ResponseEntity<OrderBean> order = msOrderProxy.createNewOrder(orderBean);
-        return order;
+        return msOrderProxy.createNewOrder();
     }
 
-    @PostMapping(value = "/order/{id}")
-    public ResponseEntity<OrderItemBean> addToOrder (@PathVariable Long id, @RequestBody OrderItemBean orderItemBean){
-        ResponseEntity<OrderItemBean> orderItem = msOrderProxy.addProductFromCartToOrder(id, orderItemBean);
-        return orderItem;
-    }
+
+
 
 
 }

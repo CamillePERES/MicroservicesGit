@@ -1,4 +1,4 @@
-package com.example.order.entities;
+package com.example.orders.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,16 +12,34 @@ public class OrderItem {
     private Long id;
     private Long productId;
     private int quantity;
-    private int total;
+    private double price;
+    private double total;
 
     public OrderItem(){
 
     }
 
-    public OrderItem(Long id, Long productId, int quantity, int total) {
+    public OrderItem(Long id, Long productId, int quantity, double price, double total) {
         this.id = id;
         this.productId = productId;
         this.quantity = quantity;
+        this.price = price;
+        this.total = total;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
         this.total = total;
     }
 
@@ -47,13 +65,5 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
     }
 }
